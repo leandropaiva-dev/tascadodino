@@ -1,31 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install framer-motion)",
-      "Bash(npm install lenis)",
-      "Bash(git fetch origin)",
-      "Bash(git remote set-url origin git@github.com:leandropaiva-dev/tascadodino.git)",
-      "Bash(git config --global --list)",
-      "Bash(git push -u origin main)",
-      "Bash(git remote set-url origin https://github.com/leandropaiva-dev/tascadodino.git)",
-      "Bash(curl -I https://github.com)",
-      "Bash(git config --global http.postBuffer 524288000)",
-      "Bash(git config --global http.version HTTP/1.1)",
-      "Bash(git push -u origin main --verbose)",
-      "Bash(git count-objects -vH)",
-      "Bash(xargs -0 ls -lh)",
-      "Bash(sort -k5 -h -r)",
-      "Bash(git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch public/hero.MP4 public/hero2.MP4 public/hero3.MP4\" --prune-empty --tag-name-filter cat -- --all)",
-      "Bash(rm \"public/hero.MP4\" \"public/hero2.MP4\" \"public/hero3.MP4\")",
-      "Bash(git rm --cached \"public/hero.MP4\" \"public/hero2.MP4\" \"public/hero3.MP4\")",
-      "Bash(git add .gitignore)",
-      "Bash(git commit -m \"remove: large video files, keep only herocompleto.mp4\")",
-      "Bash(git checkout --orphan fresh-start)",
-      "Bash(git add -A)",
-      "Bash(git commit -m \"chore: initial commit with clean history\")",
-      "Bash(git branch -D main)",
-      "Bash(git branch -m main)",
-      "Bash(git reset)"
+      "Bash(git add .gitattributes)",
+      "Bash(git add public/herocompleto.mp4)",
+      "Bash(git commit --amend --no-edit)"
     ],
     "deny": [],
     "ask": []
