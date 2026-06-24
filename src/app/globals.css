@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --cream: #f5f3f0;
+  --cream-dark: #e8e4df;
+  --beige: #d4c5b0;
+  --brown: #8b7355;
+  --brown-dark: #6b5744;
+}
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-beige: var(--beige);
+  --color-brown: var(--brown);
+  --color-brown-dark: var(--brown-dark);
+
+  /* Fonts */
+  --font-sans: var(--font-instrument-sans);
+  --font-serif: var(--font-fraunces);
+
+  /* Make colors available in Tailwind */
+  --color-cream-DEFAULT: #f5f3f0;
+  --color-cream-dark: #e8e4df;
+  --color-beige-DEFAULT: #d4c5b0;
+  --color-brown-DEFAULT: #8b7355;
+  --color-brown-dark: #6b5744;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brown);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brown-dark);
+}
