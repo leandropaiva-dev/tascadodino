@@ -3,7 +3,14 @@
     "allow": [
       "Bash(git add .gitattributes)",
       "Bash(git add public/herocompleto.mp4)",
-      "Bash(git commit --amend --no-edit)"
+      "Bash(git commit --amend --no-edit)",
+      "Bash(curl -s https://francescanafamily.it/)",
+      "Read(//c/dev/Creative Line/velion/velion/**)",
+      "Bash(npm list gsap --prefix \"c:\\dev\\Creative Line\\sites\\tascadodino\\tasca-do-dino\")",
+      "Bash(npm install gsap)",
+      "Bash(npm install leaflet react-leaflet)",
+      "Bash(npm install --save-dev @types/leaflet)",
+      "Bash(npm run build)"
     ],
     "deny": [],
     "ask": []

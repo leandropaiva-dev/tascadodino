@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -32,11 +33,12 @@ export function DishCarousel({ dishes, autoPlayInterval = 4000, isMobileMain = f
   const currentDish = dishes[currentIndex];
 
   return (
-    <div
-      className="group relative h-full overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <Link href="/ementa">
+      <div
+        className="group relative h-full overflow-hidden cursor-pointer"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
       <AnimatePresence initial={false}>
         <motion.div
           key={currentIndex}
@@ -54,13 +56,11 @@ export function DishCarousel({ dishes, autoPlayInterval = 4000, isMobileMain = f
             sizes="(max-width: 768px) 100vw, 50vw"
           />
 
+          {/* Gradient de baixo para cima - sempre visível */}
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent" />
+
           {/* Overlay escuro no hover (desktop) */}
           <div className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} ${isMobileMain ? 'md:block hidden' : ''}`} />
-
-          {/* Gradient no mobile (sempre visível) */}
-          {isMobileMain && (
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent md:hidden" />
-          )}
 
           {/* Tag com nome do prato */}
           <motion.div
@@ -94,6 +94,7 @@ export function DishCarousel({ dishes, autoPlayInterval = 4000, isMobileMain = f
           />
         ))}
       </div>
-    </div>
+      </div>
+    </Link>
   );
 }

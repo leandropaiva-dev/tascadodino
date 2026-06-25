@@ -15,45 +15,20 @@ interface ImageGalleryProps {
   layout?: "grid" | "masonry";
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
 export function ImageGallery({ images, layout = "grid" }: ImageGalleryProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   if (layout === "masonry") {
     return (
-      <motion.div
-        className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3">
         {images.map((image, index) => (
           <motion.div
             key={index}
             className="group relative break-inside-avoid overflow-hidden rounded-lg"
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -82,26 +57,22 @@ export function ImageGallery({ images, layout = "grid" }: ImageGalleryProps) {
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     );
   }
 
   // Grid layout
   return (
-    <motion.div
-      className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-    >
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {images.map((image, index) => (
         <motion.div
           key={index}
           className="group relative aspect-square overflow-hidden rounded-lg"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
           whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.3 }}
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -127,6 +98,6 @@ export function ImageGallery({ images, layout = "grid" }: ImageGalleryProps) {
           </motion.div>
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 }

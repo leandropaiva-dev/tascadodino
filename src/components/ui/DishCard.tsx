@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -15,15 +16,16 @@ export function DishCard({ imageSrc, imageAlt, dishName, fullHeight = false }: D
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div
-      className={`group relative overflow-hidden ${fullHeight ? 'h-full' : 'aspect-video'}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
+    <Link href="/ementa">
+      <motion.div
+        className={`group relative overflow-hidden cursor-pointer ${fullHeight ? 'h-full' : 'aspect-square'}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
       <Image
         src={imageSrc}
         alt={imageAlt}
@@ -46,6 +48,7 @@ export function DishCard({ imageSrc, imageAlt, dishName, fullHeight = false }: D
           {dishName}
         </h3>
       </motion.div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 }

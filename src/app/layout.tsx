@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Instrument_Sans } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import "./globals.css";
 
@@ -35,6 +36,7 @@ export default function RootLayout({
         <SmoothScroll />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

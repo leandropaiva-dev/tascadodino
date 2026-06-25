@@ -76,7 +76,7 @@ export function Navbar() {
 
             {/* Desktop CTA */}
             <a
-              href="tel:+351999999999"
+              href="tel:+351919445826"
               className="hidden md:block bg-white px-6 py-2.5 font-sans text-sm font-semibold text-brown-dark transition-all hover:bg-cream"
             >
               Reservar
@@ -136,14 +136,14 @@ export function Navbar() {
 
           {/* Mobile CTA */}
           <motion.a
-            href="tel:+351999999999"
+            href="tel:+351919445826"
             onClick={() => setIsOpen(false)}
             className="mt-8 bg-white px-10 py-4 font-sans text-lg font-semibold text-brown-dark transition-all hover:bg-cream"
             initial={{ opacity: 0, y: 20 }}
             animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
           >
-            Ligar 999 999 999
+            Ligar 919 445 826
           </motion.a>
         </div>
       </motion.div>

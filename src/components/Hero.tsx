@@ -130,7 +130,7 @@ export function Hero({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10">{primaryCtaText}</span>
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">{primaryCtaText}</span>
             <span className="absolute inset-0 -z-0 bg-brown transition-transform duration-300 ease-out translate-y-full group-hover:translate-y-0" />
           </motion.a>
 
