@@ -40,9 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large video files (use CDN instead)
+# large media files (use Vercel Blob instead)
 public/hero.MP4
 public/hero2.MP4
 public/hero3.MP4
 public/*.mp4
 public/backups/
+public/storysection*.JPG

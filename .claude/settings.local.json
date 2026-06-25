@@ -10,7 +10,10 @@
       "Bash(BLOB_READ_WRITE_TOKEN=vercel_blob_rw_Rzllhz9XdiTXREog_dBWLamlA8ofjipy0GBPRBRVxzI6U5D node scripts/upload-videos.mjs)",
       "Bash(git add .gitignore package.json package-lock.json src/app/page.tsx src/components/MerceariaParallax.tsx scripts/)",
       "Bash(git commit -m \"$(cat <<''EOF''\nfeat: migrate videos to Vercel Blob Storage\n\nMove herocompleto.mp4 and mercearia.mp4 to Vercel Blob Storage to reduce repository size and improve deployment performance. Videos now load from CDN URLs instead of being bundled with the application.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(BLOB_READ_WRITE_TOKEN=vercel_blob_rw_Rzllhz9XdiTXREog_dBWLamlA8ofjipy0GBPRBRVxzI6U5D node scripts/upload-images.mjs)",
+      "Bash(git add -A)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: migrate images to Vercel Blob Storage\n\nMove storysection images to Vercel Blob to improve loading performance. Images now served from CDN instead of repository.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []

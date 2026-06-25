@@ -31,9 +31,9 @@ export default function Home() {
         linkText="Conhecer a nossa história"
         linkHref="/historia"
         images={[
-          { src: "/storysection.JPG", alt: "Interior da Tasca do Dino" },
-          { src: "/storysection2.JPG", alt: "Ambiente tradicional da tasca" },
-          { src: "/storysection3.JPG", alt: "Detalhes da casa centenária" }
+          { src: "https://rzllhz9xditxreog.public.blob.vercel-storage.com/storysection.jpg", alt: "Interior da Tasca do Dino" },
+          { src: "https://rzllhz9xditxreog.public.blob.vercel-storage.com/storysection2.jpg", alt: "Ambiente tradicional da tasca" },
+          { src: "https://rzllhz9xditxreog.public.blob.vercel-storage.com/storysection3.jpg", alt: "Detalhes da casa centenária" }
         ]}
         imagePosition="right"
       />
