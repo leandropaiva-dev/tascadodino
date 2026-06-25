@@ -41,7 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # large video files (use CDN instead)
-# keep only herocompleto.mp4
 public/hero.MP4
 public/hero2.MP4
 public/hero3.MP4
+public/*.mp4
+public/backups/

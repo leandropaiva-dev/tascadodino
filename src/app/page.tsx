@@ -12,7 +12,7 @@ export default function Home() {
       <Hero
         title="Tasca do Dino"
         subtitle="Onde a tradição se senta à mesa."
-        videoSrcs={["/herocompleto.mp4"]}
+        videoSrcs={["https://rzllhz9xditxreog.public.blob.vercel-storage.com/herocompleto.mp4"]}
         imageSrc="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2574"
         imageAlt="Interior tradicional do restaurante"
         primaryCtaText="Reservar mesa"

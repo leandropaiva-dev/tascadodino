@@ -51,7 +51,7 @@ export function MerceariaParallax() {
           playsInline
           className="h-full w-full object-cover"
         >
-          <source src="/mercearia.mp4" type="video/mp4" />
+          <source src="https://rzllhz9xditxreog.public.blob.vercel-storage.com/mercearia.mp4" type="video/mp4" />
         </video>
       </div>
 
