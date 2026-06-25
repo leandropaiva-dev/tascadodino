@@ -52,6 +52,9 @@ const gridDishes = [
 ];
 
 export function BentoGrid() {
+  // Combine all dishes for mobile carousel
+  const allDishes = [...carouselDishes, ...gridDishes];
+
   return (
     <section className="relative w-full bg-white py-12 md:py-20">
       <div className="w-full">
@@ -68,9 +71,9 @@ export function BentoGrid() {
 
         {/* Bento Grid achatado com aspect-video */}
         <div className="mb-12 grid grid-cols-1 gap-px md:grid-cols-4 md:grid-rows-2 md:gap-px">
-          {/* Mobile: Carrossel */}
-          <div className="md:hidden">
-            <DishCarousel dishes={carouselDishes} isMobileMain={true} />
+          {/* Mobile: Carrossel com TODOS os pratos */}
+          <div className="md:hidden h-[400px]">
+            <DishCarousel dishes={allDishes} isMobileMain={true} />
           </div>
 
           {/* Desktop: Bento Grid */}
