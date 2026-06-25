@@ -84,7 +84,16 @@ export function DishCarousel({ dishes, autoPlayInterval = 4000, isMobileMain = f
         {dishes.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setCurrentIndex(index);
+            }}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setCurrentIndex(index);
+            }}
             className={`h-2 rounded-full transition-all duration-300 ${
               index === currentIndex
                 ? 'w-8 bg-white'

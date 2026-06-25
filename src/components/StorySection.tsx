@@ -26,9 +26,13 @@ export function StorySection({
 }: StorySectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-advance carousel
+  // Auto-advance carousel (desktop only)
   useEffect(() => {
     if (images.length <= 1) return;
+
+    // Only run carousel on desktop
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    if (!mediaQuery.matches) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -38,49 +42,22 @@ export function StorySection({
   }, [images.length, autoPlayInterval]);
 
   const currentImage = images[currentIndex];
+  const firstImage = images[0]; // Always use first image on mobile
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Mobile: Background Image with Overlay - Carousel */}
+      {/* Mobile: Static Background Image */}
       <div className="absolute inset-0 lg:hidden">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={currentImage.src}
-              alt={currentImage.alt}
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-          </motion.div>
-        </AnimatePresence>
+        <Image
+          src={firstImage.src}
+          alt={firstImage.alt}
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/70" />
-
-        {/* Dots de navegação - Mobile */}
-        {images.length > 1 && (
-          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'w-8 bg-white'
-                    : 'w-2 bg-white/50'
-                }`}
-                aria-label={`Ir para imagem ${index + 1}`}
-              />
-            ))}
-          </div>
-        )}
       </div>
 
       {/* Desktop: Split Layout */}
