@@ -1,16 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add .gitattributes)",
-      "Bash(git add public/herocompleto.mp4)",
-      "Bash(git commit --amend --no-edit)",
-      "Bash(curl -s https://francescanafamily.it/)",
-      "Read(//c/dev/Creative Line/velion/velion/**)",
-      "Bash(npm list gsap --prefix \"c:\\dev\\Creative Line\\sites\\tascadodino\\tasca-do-dino\")",
-      "Bash(npm install gsap)",
-      "Bash(npm install leaflet react-leaflet)",
-      "Bash(npm install --save-dev @types/leaflet)",
-      "Bash(npm run build)"
+      "Bash(cat .gitattributes)",
+      "Bash(winget install --id Gyan.FFmpeg -e --source winget)",
+      "Bash(npm install @vercel/blob)",
+      "Bash(node scripts/upload-videos.mjs)",
+      "Bash(set BLOB_READ_WRITE_TOKEN=vercel_blob_rw_Rzllhz9XdiTXREog_dBWLamlA8ofjipy0GBPRBRVxzI6U5D)",
+      "Bash($env:BLOB_READ_WRITE_TOKEN=\"vercel_blob_rw_Rzllhz9XdiTXREog_dBWLamlA8ofjipy0GBPRBRVxzI6U5D\")",
+      "Bash(BLOB_READ_WRITE_TOKEN=vercel_blob_rw_Rzllhz9XdiTXREog_dBWLamlA8ofjipy0GBPRBRVxzI6U5D node scripts/upload-videos.mjs)",
+      "Bash(git add .gitignore package.json package-lock.json src/app/page.tsx src/components/MerceariaParallax.tsx scripts/)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: migrate videos to Vercel Blob Storage\n\nMove herocompleto.mp4 and mercearia.mp4 to Vercel Blob Storage to reduce repository size and improve deployment performance. Videos now load from CDN URLs instead of being bundled with the application.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)"
     ],
     "deny": [],
     "ask": []
