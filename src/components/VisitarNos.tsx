@@ -1,121 +1,111 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const MapLeaflet = dynamic(() => import("./ui/MapLeaflet").then((mod) => mod.MapLeaflet), {
+  ssr: false,
+});
 
 export function VisitarNos() {
   return (
-    <Section background="cream">
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="mb-8 font-serif text-4xl font-bold md:text-5xl lg:text-6xl">
-            Visitar-nos
-          </h2>
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Mobile: Background Map with Overlay */}
+      <div className="absolute inset-0 lg:hidden">
+        <MapLeaflet
+          latitude={41.2020057}
+          longitude={-8.0951227}
+          zoom={15}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
 
-          {/* Horário */}
-          <div className="mb-8">
-            <h3 className="mb-4 font-serif text-2xl font-bold">Horário</h3>
-            <div className="space-y-2 font-sans text-lg text-zinc-700">
-              <p>Segunda a Domingo: 12:00 - 15:00 · 19:00 - 22:00</p>
-              <p className="text-sm italic text-zinc-600">
-                Reservas recomendadas
+      {/* Desktop: Split Layout */}
+      <div className="flex h-full flex-row">
+        {/* Text Side - Left */}
+        <div className="relative z-10 flex w-full lg:w-1/2 items-center px-4 py-16 md:px-8 lg:pl-[max(2rem,calc((100vw-1536px)/2))]">
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h2 className="mb-8 font-serif text-4xl font-bold leading-tight text-white lg:text-black md:text-5xl lg:text-6xl">
+              Visitar-nos
+            </h2>
+
+            {/* Horário */}
+            <div className="mb-8">
+              <h3 className="mb-4 font-serif text-2xl font-bold text-white lg:text-black">Horário</h3>
+              <div className="space-y-2 font-sans text-lg text-white lg:text-zinc-700">
+                <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+                  <span className="font-medium">Segunda:</span>
+                  <span>12:30–16:00</span>
+
+                  <span className="font-medium">Terça a Quinta:</span>
+                  <span>12:30–17:00 · 19:00–23:00</span>
+
+                  <span className="font-medium">Sexta e Sábado:</span>
+                  <span>12:30–17:00 · 19:30–00:00</span>
+
+                  <span className="font-medium">Domingo:</span>
+                  <span className="opacity-70">Encerrado</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Contacto */}
+            <div className="mb-8">
+              <h3 className="mb-4 font-serif text-2xl font-bold text-white lg:text-black">Contacto</h3>
+              <div className="space-y-2 font-sans text-lg text-white lg:text-zinc-700">
+                <p>
+                  <a href="tel:+351919445826" className="transition-colors hover:text-cream lg:hover:text-brown">
+                    +351 919 445 826
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            {/* Morada */}
+            <div className="mb-8">
+              <h3 className="mb-4 font-serif text-2xl font-bold text-white lg:text-black">Morada</h3>
+              <p className="font-sans text-lg text-white lg:text-zinc-700">
+                Rua de S.Lourenço, 195<br />
+                4635-645 Marco de Canaveses<br />
+                Portugal
               </p>
             </div>
-          </div>
 
-          {/* Contacto */}
-          <div className="mb-8">
-            <h3 className="mb-4 font-serif text-2xl font-bold">Contacto</h3>
-            <div className="space-y-2 font-sans text-lg text-zinc-700">
-              <p>
-                <a
-                  href="tel:+351255522800"
-                  className="transition-colors hover:text-brown"
-                >
-                  +351 255 522 800
-                </a>
-              </p>
-            </div>
-          </div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <a
+                href="tel:+351919445826"
+                className="group relative inline-flex items-center overflow-hidden border-2 border-white lg:border-brown px-8 py-3 font-sans text-base font-semibold text-white lg:text-brown transition-all md:px-10 md:py-4 md:text-lg"
+              >
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-black lg:group-hover:text-white">
+                  Reservar mesa
+                </span>
+                <span className="absolute inset-0 -z-0 bg-white lg:bg-brown transition-transform duration-300 ease-out translate-y-full group-hover:translate-y-0" />
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
 
-          {/* Morada */}
-          <div className="mb-8">
-            <h3 className="mb-4 font-serif text-2xl font-bold">Morada</h3>
-            <p className="font-sans text-lg text-zinc-700">
-              Marco de Canaveses
-              <br />
-              Portugal
-            </p>
-          </div>
-
-          {/* Formas de pagamento */}
-          <div>
-            <h3 className="mb-4 font-serif text-2xl font-bold">
-              Formas de pagamento
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              <span className="rounded-md border border-zinc-300 bg-white px-4 py-2 font-sans text-sm font-medium">
-                Dinheiro
-              </span>
-              <span className="rounded-md border border-zinc-300 bg-white px-4 py-2 font-sans text-sm font-medium">
-                Multibanco
-              </span>
-              <span className="rounded-md border border-zinc-300 bg-white px-4 py-2 font-sans text-sm font-medium">
-                Visa
-              </span>
-              <span className="rounded-md border border-zinc-300 bg-white px-4 py-2 font-sans text-sm font-medium">
-                Mastercard
-              </span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Mapa placeholder */}
+        {/* Map Side - Desktop Only, Right */}
         <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
+          className="hidden lg:block relative w-1/2"
+          initial={{ opacity: 0, scale: 1.1 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="h-full min-h-[400px] overflow-hidden rounded-lg bg-zinc-200 lg:min-h-[600px]"
+          transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="flex h-full items-center justify-center">
-            <p className="font-sans text-zinc-500">
-              Mapa (integrar Google Maps)
-            </p>
-          </div>
+          <MapLeaflet
+            latitude={41.2020057}
+            longitude={-8.0951227}
+            zoom={15}
+          />
         </motion.div>
-      </div>
-    </Section>
-  );
-}
-
-// Section component inline
-function Section({
-  children,
-  background = "white",
-  className = "",
-}: {
-  children: React.ReactNode;
-  background?: "white" | "cream" | "black";
-  className?: string;
-}) {
-  const bgClass =
-    background === "cream"
-      ? "bg-cream"
-      : background === "black"
-        ? "bg-black text-white"
-        : "bg-white";
-
-  return (
-    <section
-      className={`relative w-full ${bgClass} ${className}`}
-    >
-      <div className="mx-auto max-w-screen-2xl px-4 py-20 md:px-8 md:py-32">
-        {children}
       </div>
     </section>
   );

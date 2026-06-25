@@ -36,18 +36,24 @@ export function MerceariaParallax() {
       ref={sectionRef}
       className="relative h-screen w-full overflow-hidden"
     >
-      {/* Background image with parallax */}
+      {/* Background video with parallax */}
       <div
         ref={imageRef}
         className="absolute -top-[10%] left-0 h-[120%] w-full"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2574)",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
           willChange: "transform",
         }}
-      />
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover"
+        >
+          <source src="/mercearia.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       {/* Dark overlay */}
       <div className="absolute inset-0 z-10 bg-black/60" />

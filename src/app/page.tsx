@@ -30,8 +30,11 @@ export default function Home() {
         ]}
         linkText="Conhecer a nossa história"
         linkHref="/historia"
-        imageSrc="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2670"
-        imageAlt="Fachada da casa centenária"
+        images={[
+          { src: "/storysection.JPG", alt: "Interior da Tasca do Dino" },
+          { src: "/storysection2.JPG", alt: "Ambiente tradicional da tasca" },
+          { src: "/storysection3.JPG", alt: "Detalhes da casa centenária" }
+        ]}
         imagePosition="right"
       />
 

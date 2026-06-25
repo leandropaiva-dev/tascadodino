@@ -1,17 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 interface StorySectionProps {
   title: string;
   paragraphs: string[];
   linkText: string;
   linkHref: string;
-  imageSrc: string;
-  imageAlt: string;
+  images: { src: string; alt: string }[];
   imagePosition?: "left" | "right";
+  autoPlayInterval?: number;
 }
 
 export function StorySection({
@@ -19,23 +20,67 @@ export function StorySection({
   paragraphs,
   linkText,
   linkHref,
-  imageSrc,
-  imageAlt,
+  images,
   imagePosition = "right",
+  autoPlayInterval = 4000,
 }: StorySectionProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-advance carousel
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, autoPlayInterval);
+
+    return () => clearInterval(interval);
+  }, [images.length, autoPlayInterval]);
+
+  const currentImage = images[currentIndex];
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Mobile: Background Image with Overlay */}
+      {/* Mobile: Background Image with Overlay - Carousel */}
       <div className="absolute inset-0 lg:hidden">
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={currentImage.src}
+              alt={currentImage.alt}
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/70" />
+
+        {/* Dots de navegação - Mobile */}
+        {images.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-8 bg-white'
+                    : 'w-2 bg-white/50'
+                }`}
+                aria-label={`Ir para imagem ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Desktop: Split Layout */}
@@ -80,22 +125,45 @@ export function StorySection({
           </motion.div>
         </div>
 
-        {/* Image Side - Desktop Only */}
-        <motion.div
-          className="hidden lg:block relative w-1/2"
-          initial={{ opacity: 0, scale: 1.1 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover"
-            sizes="50vw"
-          />
-        </motion.div>
+        {/* Image Side - Desktop Carousel */}
+        <div className="hidden lg:block relative w-1/2">
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={currentImage.src}
+                alt={currentImage.alt}
+                fill
+                className="object-cover"
+                sizes="50vw"
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Dots de navegação - Desktop */}
+          {images.length > 1 && (
+            <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'w-8 bg-white'
+                      : 'w-2 bg-white/50 hover:bg-white/75'
+                  }`}
+                  aria-label={`Ir para imagem ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

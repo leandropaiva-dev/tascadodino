@@ -5,36 +5,55 @@ import { DishCard } from "./ui/DishCard";
 import { DishCarousel } from "./ui/DishCarousel";
 import Link from "next/link";
 
-const dishes = [
+const carouselDishes = [
   {
-    imageSrc:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2670",
-    imageAlt: "Pataniscas tradicionais portuguesas",
+    imageSrc: "/pratos/RUIR5393.JPG",
+    imageAlt: "Prato tradicional da Tasca do Dino",
     dishName: "Pataniscas da Dona Amélia",
   },
   {
-    imageSrc:
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2574",
+    imageSrc: "/pratos/RUIR5488.JPG",
+    imageAlt: "Especialidade da casa",
+    dishName: "Especialidade da Casa",
+  },
+  {
+    imageSrc: "/pratos/RUIR5511.JPG",
+    imageAlt: "Prato tradicional português",
+    dishName: "Tradição Portuguesa",
+  },
+  {
+    imageSrc: "/pratos/RUIR5558.JPG",
+    imageAlt: "Receita da Tasca do Dino",
+    dishName: "Receita da Tasca",
+  },
+];
+
+const gridDishes = [
+  {
+    imageSrc: "/pratos/RUIR5412.JPG",
     imageAlt: "Cozido à portuguesa",
     dishName: "Cozido à Portuguesa",
   },
   {
-    imageSrc:
-      "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=2680",
+    imageSrc: "/pratos/RUIR5464.JPG",
     imageAlt: "Francesinha tradicional",
     dishName: "Francesinha",
   },
   {
-    imageSrc:
-      "https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?q=80&w=2574",
+    imageSrc: "/pratos/RUIR5472.JPG",
     imageAlt: "Alheira grelhada",
     dishName: "Alheira Grelhada",
+  },
+  {
+    imageSrc: "/pratos/RUIR5579.JPG",
+    imageAlt: "Prato tradicional",
+    dishName: "Tradição à Mesa",
   },
 ];
 
 export function BentoGrid() {
   return (
-    <section className="relative w-full bg-white py-20 md:py-32">
+    <section className="relative w-full bg-white py-12 md:py-20">
       <div className="w-full">
         {/* Título */}
         <motion.h2
@@ -51,43 +70,43 @@ export function BentoGrid() {
         <div className="mb-12 grid grid-cols-1 gap-px md:grid-cols-4 md:grid-rows-2 md:gap-px">
           {/* Mobile: Carrossel */}
           <div className="md:hidden">
-            <DishCarousel dishes={dishes} isMobileMain={true} />
+            <DishCarousel dishes={carouselDishes} isMobileMain={true} />
           </div>
 
           {/* Desktop: Bento Grid */}
           <div className="hidden md:col-span-2 md:row-span-2 md:block">
-            <DishCarousel dishes={dishes} />
+            <DishCarousel dishes={carouselDishes} />
           </div>
 
           <div className="hidden md:block">
             <DishCard
-              imageSrc={dishes[1].imageSrc}
-              imageAlt={dishes[1].imageAlt}
-              dishName={dishes[1].dishName}
+              imageSrc={gridDishes[0].imageSrc}
+              imageAlt={gridDishes[0].imageAlt}
+              dishName={gridDishes[0].dishName}
             />
           </div>
 
           <div className="hidden md:block">
             <DishCard
-              imageSrc={dishes[2].imageSrc}
-              imageAlt={dishes[2].imageAlt}
-              dishName={dishes[2].dishName}
+              imageSrc={gridDishes[1].imageSrc}
+              imageAlt={gridDishes[1].imageAlt}
+              dishName={gridDishes[1].dishName}
             />
           </div>
 
           <div className="hidden md:block">
             <DishCard
-              imageSrc={dishes[3].imageSrc}
-              imageAlt={dishes[3].imageAlt}
-              dishName={dishes[3].dishName}
+              imageSrc={gridDishes[2].imageSrc}
+              imageAlt={gridDishes[2].imageAlt}
+              dishName={gridDishes[2].dishName}
             />
           </div>
 
           <div className="hidden md:block">
             <DishCard
-              imageSrc={dishes[0].imageSrc}
-              imageAlt={dishes[0].imageAlt}
-              dishName={dishes[0].dishName}
+              imageSrc={gridDishes[3].imageSrc}
+              imageAlt={gridDishes[3].imageAlt}
+              dishName={gridDishes[3].dishName}
             />
           </div>
         </div>

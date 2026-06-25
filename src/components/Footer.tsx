@@ -52,7 +52,7 @@ export function Footer() {
 
   return (
     <footer className="bg-brown-dark text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full px-4 py-12 md:px-8 lg:px-[max(2rem,calc((100vw-1536px)/2))]">
         {/* Desktop Layout */}
         <div className="hidden items-start justify-between md:flex">
           {/* Logo e Descrição */}
