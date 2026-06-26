@@ -66,7 +66,7 @@ export function BentoGrid() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          À mesa na Tasca do Dino
+          À mesa na Tasca Dino
         </motion.h2>
 
         {/* Bento Grid achatado com aspect-video */}

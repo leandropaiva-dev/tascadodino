@@ -17,13 +17,13 @@ async function uploadVideos() {
   }
 
   try {
-    console.log('📤 A fazer upload do herocompleto.mp4...');
-    const heroVideo = readFileSync('public/herocompleto.mp4');
-    const heroBlob = await put('herocompleto.mp4', heroVideo, {
+    console.log('📤 A fazer upload do RUIR5648.mp4...');
+    const ruirVideo = readFileSync('public/RUIR5648.mp4');
+    const ruirBlob = await put('RUIR5648.mp4', ruirVideo, {
       access: 'public',
       token: BLOB_READ_WRITE_TOKEN,
     });
-    console.log('✅ herocompleto.mp4 uploaded:', heroBlob.url);
+    console.log('✅ RUIR5648.mp4 uploaded:', ruirBlob.url);
 
     console.log('\n📤 A fazer upload do mercearia.mp4...');
     const merceariaVideo = readFileSync('public/mercearia.mp4');
@@ -34,7 +34,7 @@ async function uploadVideos() {
     console.log('✅ mercearia.mp4 uploaded:', merceariaBlob.url);
 
     console.log('\n✨ URLs dos vídeos (guarda isto):');
-    console.log('Hero:', heroBlob.url);
+    console.log('Hero (RUIR5648):', ruirBlob.url);
     console.log('Mercearia:', merceariaBlob.url);
   } catch (error) {
     console.error('❌ Erro ao fazer upload:', error);

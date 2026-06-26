@@ -76,8 +76,7 @@ export function Hero({
             loop
             muted
             playsInline
-            className="h-full w-full object-cover object-center lg:object-left-top"
-            style={{ transform: isDesktop ? 'scale(1.2)' : 'scale(1)', transformOrigin: 'top left' }}
+            className="h-full w-full object-cover object-center"
           >
             <source src={videoSrcs[currentVideoIndex]} type="video/mp4" />
           </video>
@@ -87,8 +86,7 @@ export function Hero({
             alt={imageAlt}
             fill
             priority
-            className="object-cover object-center lg:object-left-top"
-            style={{ transform: isDesktop ? 'scale(1.2)' : 'scale(1)', transformOrigin: 'top left' }}
+            className="object-cover object-center"
           />
         ) : null}
 
