@@ -23,7 +23,8 @@
       "Bash(npm install gsap)",
       "Bash(npm install cloudinary)",
       "Bash(node cloudinary-test.js)",
-      "Bash(node upload-videos.js)"
+      "Bash(node upload-videos.js)",
+      "Bash(npm run build)"
     ],
     "deny": [],
     "ask": []

@@ -67,6 +67,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="font-sans text-sm font-medium text-white transition-colors hover:text-cream"
                 >
                   {link.label}
@@ -126,7 +127,10 @@ export function Navbar() {
             >
               <Link
                 href={link.href}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  window.scrollTo(0, 0);
+                }}
                 className="font-serif text-4xl font-bold text-white transition-colors hover:text-cream"
               >
                 {link.label}
