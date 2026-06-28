@@ -2,9 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const quickLinks = [
-  { label: "Menu", href: "/ementa" },
+  { label: "Ementa", href: "/ementa" },
   { label: "A Nossa História", href: "/historia" },
-  { label: "Pratos", href: "/ementa" },
   { label: "Reservas", href: "/contacto" },
 ];
 
@@ -59,13 +58,13 @@ export function Footer() {
           <div className="max-w-xs">
             <Image
               src="/logo-dino.svg"
-              alt="Tasca do Dino"
+              alt="Tasca Dino"
               width={160}
               height={64}
               className="mb-4 h-16 w-auto brightness-0 invert"
             />
             <p className="font-sans text-sm leading-relaxed text-white/80">
-              Tasca do Dino é um dos principais restaurantes de cozinha
+              Tasca Dino é um dos principais restaurantes de cozinha
               tradicional portuguesa em Marco de Canaveses.{" "}
               <Link href="/historia" className="underline hover:text-cream">
                 Saiba mais
@@ -76,7 +75,7 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="mb-4 font-serif text-lg font-semibold">
-              QUICK LINKS
+              LINKS ÚTEIS
             </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -94,9 +93,6 @@ export function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="mb-4 font-serif text-lg font-semibold">
-              FOLLOW US :
-            </h3>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
@@ -120,7 +116,7 @@ export function Footer() {
           <div className="mb-6">
             <Image
               src="/logo-dino.svg"
-              alt="Tasca do Dino"
+              alt="Tasca Dino"
               width={120}
               height={48}
               className="h-12 w-auto brightness-0 invert"
@@ -129,7 +125,7 @@ export function Footer() {
 
           {/* Descrição */}
           <p className="mb-6 font-sans text-sm leading-relaxed text-white/80">
-            Tasca do Dino é um dos principais restaurantes de cozinha
+            Tasca Dino é um dos principais restaurantes de cozinha
             tradicional portuguesa em Marco de Canaveses.{" "}
             <Link href="/historia" className="underline hover:text-cream">
               Saiba mais
@@ -138,9 +134,6 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="mb-6">
-            <h3 className="mb-3 font-serif text-sm font-semibold">
-              FOLLOW US :
-            </h3>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
@@ -160,7 +153,7 @@ export function Footer() {
           {/* Quick Links - Grid 2 colunas */}
           <div className="mb-6">
             <h3 className="mb-3 font-serif text-sm font-semibold">
-              QUICK LINKS
+              LINKS ÚTEIS
             </h3>
             <div className="grid grid-cols-2 gap-x-8 gap-y-2">
               {quickLinks.map((link) => (
@@ -180,7 +173,7 @@ export function Footer() {
         <div className="mt-8 border-t border-white/10 pt-6">
           <div className="flex flex-col items-center justify-between gap-2 text-xs text-white/60 md:flex-row">
             <p>
-              © {currentYear} Tasca do Dino. Todos os direitos reservados.
+              © {currentYear} Tasca Dino. Todos os direitos reservados.
             </p>
             <div className="flex gap-4">
               <Link href="#" className="hover:text-white/80">

@@ -12,7 +12,7 @@ export default function Home() {
       <Hero
         title="Tasca Dino"
         subtitle="Onde a tradição se senta à mesa."
-        videoSrcs={["https://rzllhz9xditxreog.public.blob.vercel-storage.com/RUIR5648.mp4"]}
+        videoSrcs={["https://res.cloudinary.com/dmqpoaiq5/video/upload/v1782676513/tasca-dino/tasca-dino/RUIR5648.mp4"]}
         imageSrc="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2574"
         imageAlt="Interior tradicional do restaurante"
         primaryCtaText="Reservar mesa"
@@ -25,13 +25,13 @@ export default function Home() {
       <StorySection
         title="Entre paredes que contam histórias"
         paragraphs={[
-          "Estamos numa casa centenária, levantada em 1889, que durante décadas foi a mercearia e o ponto de encontro da nossa terra. Em 1982, o Sr. Dino e a D. Amélia deram-lhe uma nova vida — e nasceu a Tasca do Dino.",
+          "Estamos numa casa centenária, levantada em 1889, que durante décadas foi a mercearia e o ponto de encontro da nossa terra. Em 1982, o Sr. Dino e a D. Amélia deram-lhe uma nova vida — e nasceu a Tasca Dino.",
           "Hoje, já na segunda geração, continuamos a receber como sempre se recebeu por aqui: com a mesa cheia, a porta aberta e o gosto genuíno de quem nos visita se sentir em casa."
         ]}
         linkText="Conhecer a nossa história"
         linkHref="/historia"
         images={[
-          { src: "/storysection.JPG", alt: "Interior da Tasca do Dino" },
+          { src: "/storysection.JPG", alt: "Interior da Tasca Dino" },
           { src: "/storysection2.JPG", alt: "Ambiente tradicional da tasca" },
           { src: "/storysection3.JPG", alt: "Detalhes da casa centenária" }
         ]}

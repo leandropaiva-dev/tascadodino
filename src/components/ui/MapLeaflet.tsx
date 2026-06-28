@@ -53,7 +53,7 @@ export function MapLeaflet({
       html: `
         <div class="flex flex-col items-center">
           <div class="relative w-12 h-12 bg-brown-dark rounded-full shadow-lg flex items-center justify-center border-4 border-white">
-            <img src="/logo-dino.svg" alt="Tasca do Dino" class="w-8 h-8 brightness-0 invert" />
+            <img src="/logo-dino.svg" alt="Tasca Dino" class="w-8 h-8 brightness-0 invert" />
           </div>
           <div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-white -mt-1"></div>
         </div>

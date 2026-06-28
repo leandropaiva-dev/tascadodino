@@ -8,7 +8,7 @@ import Link from "next/link";
 const carouselDishes = [
   {
     imageSrc: "/pratos/RUIR5393.JPG",
-    imageAlt: "Prato tradicional da Tasca do Dino",
+    imageAlt: "Prato tradicional da Tasca Dino",
     dishName: "Pataniscas da Dona Amélia",
   },
   {
@@ -23,7 +23,7 @@ const carouselDishes = [
   },
   {
     imageSrc: "/pratos/RUIR5558.JPG",
-    imageAlt: "Receita da Tasca do Dino",
+    imageAlt: "Receita da Tasca Dino",
     dishName: "Receita da Tasca",
   },
 ];

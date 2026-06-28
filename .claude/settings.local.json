@@ -13,7 +13,17 @@
       "Bash(git push)",
       "Bash(BLOB_READ_WRITE_TOKEN=vercel_blob_rw_Rzllhz9XdiTXREog_dBWLamlA8ofjipy0GBPRBRVxzI6U5D node scripts/upload-images.mjs)",
       "Bash(git add -A)",
-      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: migrate images to Vercel Blob Storage\n\nMove storysection images to Vercel Blob to improve loading performance. Images now served from CDN instead of repository.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: migrate images to Vercel Blob Storage\n\nMove storysection images to Vercel Blob to improve loading performance. Images now served from CDN instead of repository.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(npx shadcn@latest add carousel)",
+      "Bash(npx shadcn@latest init)",
+      "Bash(printf \"y\\nRadix\\nNova\\nZinc\\nno\\nsrc\\nyes\\nsrc/components\\nsrc/lib/utils.ts\\nyes\\nyes\\nyes\\n\")",
+      "Bash(npm install clsx tailwind-merge class-variance-authority)",
+      "Bash(npm install lucide-react embla-carousel-react)",
+      "Read(//c/dev/Creative Line/velion/velion/**)",
+      "Bash(npm install gsap)",
+      "Bash(npm install cloudinary)",
+      "Bash(node cloudinary-test.js)",
+      "Bash(node upload-videos.js)"
     ],
     "deny": [],
     "ask": []

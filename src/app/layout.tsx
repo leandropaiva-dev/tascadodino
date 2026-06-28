@@ -3,6 +3,7 @@ import { Fraunces, Instrument_Sans } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import ScrollSmoothProvider from "@/components/providers/ScrollSmoothProvider";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -18,7 +19,7 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tasca do Dino | Restaurante Tradicional Português",
+  title: "Tasca Dino | Restaurante Tradicional Português",
   description: "Tradição portuguesa desde 1982, numa casa de 1889. Marco de Canaveses.",
 };
 
@@ -35,8 +36,14 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <SmoothScroll />
         <Navbar />
-        {children}
-        <Footer />
+        <ScrollSmoothProvider>
+          <div id="smooth-wrapper">
+            <div id="smooth-content">
+              {children}
+              <Footer />
+            </div>
+          </div>
+        </ScrollSmoothProvider>
       </body>
     </html>
   );

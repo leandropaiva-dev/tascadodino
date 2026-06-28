@@ -1,48 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export function MerceariaParallax() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current || !imageRef.current) return;
-
-    // Parallax effect - imagem move mais devagar que o scroll
-    gsap.to(imageRef.current, {
-      y: "20%",
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden"
-    >
+    <section className="relative h-screen w-full overflow-hidden">
       {/* Background video with parallax */}
       <div
-        ref={imageRef}
-        className="absolute -top-[10%] left-0 h-[120%] w-full"
-        style={{
-          willChange: "transform",
-        }}
+        className="absolute inset-0"
+        data-speed="0.8"
       >
         <video
           autoPlay
@@ -51,7 +17,7 @@ export function MerceariaParallax() {
           playsInline
           className="h-full w-full object-cover"
         >
-          <source src="https://rzllhz9xditxreog.public.blob.vercel-storage.com/mercearia.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dmqpoaiq5/video/upload/v1782676518/tasca-dino/tasca-dino/mercearia.mp4" type="video/mp4" />
         </video>
       </div>
 

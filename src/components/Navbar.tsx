@@ -54,7 +54,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center">
               <Image
                 src="/logo-dino.svg"
-                alt="Tasca do Dino"
+                alt="Tasca Dino"
                 width={160}
                 height={64}
                 className="h-16 w-auto brightness-0 invert"
@@ -138,12 +138,17 @@ export function Navbar() {
           <motion.a
             href="tel:+351919445826"
             onClick={() => setIsOpen(false)}
-            className="mt-8 bg-white px-10 py-4 font-sans text-lg font-semibold text-brown-dark transition-all hover:bg-cream"
+            className="group relative mt-8 inline-flex items-center justify-center overflow-hidden bg-white px-8 py-3 font-sans text-base font-semibold text-black transition-all md:px-10 md:py-4 md:text-lg shadow-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Ligar 919 445 826
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+              Reservar mesa
+            </span>
+            <span className="absolute inset-0 z-0 bg-brown transition-transform duration-300 ease-out translate-y-full group-hover:translate-y-0" />
           </motion.a>
         </div>
       </motion.div>
