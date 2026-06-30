@@ -57,7 +57,7 @@ export function Footer() {
           {/* Logo e Descrição */}
           <div className="max-w-xs">
             <Image
-              src="/logo-dino.svg"
+              src="/pratos/Sem-titulo-1.png"
               alt="Tasca Dino"
               width={160}
               height={64}
@@ -115,7 +115,7 @@ export function Footer() {
           {/* Logo */}
           <div className="mb-6">
             <Image
-              src="/logo-dino.svg"
+              src="/pratos/Sem-titulo-1.png"
               alt="Tasca Dino"
               width={120}
               height={48}

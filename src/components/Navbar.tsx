@@ -53,11 +53,11 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
-                src="/logo-dino.svg"
+                src="/pratos/Sem-titulo-1.png"
                 alt="Tasca Dino"
-                width={160}
-                height={64}
-                className="h-16 w-auto brightness-0 invert"
+                width={120}
+                height={48}
+                className="h-12 w-auto brightness-0 invert"
               />
             </Link>
 
